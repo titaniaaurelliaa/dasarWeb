@@ -9,8 +9,8 @@
 // perkenalan();
 // perkenalan();
 
-//4.2
-function perkenalan($nama, $salam){
+//4.2 4.3
+function perkenalan($nama, $salam = "Assalamualaikum"){
     echo $salam.", ";
     echo "Perkenalkan, nama saya ".$nama." <br/>";
     echo "Senang berkenalan dengan Anda <br/>";
@@ -24,5 +24,5 @@ $saya = "Titann";
 $ucapanSalam = "Morningg";
 
 //memanggil lagi
-perkenalan($saya, $ucapanSalam);
+perkenalan($saya);
 ?>
