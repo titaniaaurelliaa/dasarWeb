@@ -3,7 +3,7 @@ $umur;
 if (isset($umur) && $umur >= 18){
     echo "Anda sudah dewasa.";
 } else {
-    echo "Anda belum dewasa atau variabel 'umur' tidak ditemukan.";
+    echo "Anda belum dewasa atau variabel 'umur' tidak ditemukan.<br>";
 }
 
 $data = array("nama" => "Titania", "Usia" => 19);
