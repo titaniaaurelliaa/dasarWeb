@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         //Lanjutkan dengan pemrosesan data jika semua validasi berhasil
         //Misalnya, menyimpan data ke database atau mengirim email
-        echo "Data berhasil dikirim: Nama = " . $nama . ", Email = " . $email;
+        echo "Data berhasil dikirim : Nama = " . $nama . ", Email = " . $email;
     }
 }
 ?>
