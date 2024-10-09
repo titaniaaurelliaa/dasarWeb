@@ -22,7 +22,7 @@
 
             <br>
 
-            <label>Pilih jenis kelamin : </label>
+            <label>Pilih jenis kelamin : </label><br>
             <input type="radio" name="jenis_kelamin" value="laki-laki"> Laki - laki <br>
             <input type="radio" name="jenis_kelamin" value="perempuan"> Perempuan <br>
 
