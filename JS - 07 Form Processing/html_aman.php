@@ -22,7 +22,7 @@
 
             //validasi sederhana: pastikan input tidak kosong
             if (!empty($input)) {
-                echo "<p>Data yang dimasukkan: " . $input . "</p>";
+                echo "<p>Data yang dimasukkan : " . $input . "</p>";
             } else {
                 echo "<p>Input tidak boleh kosong!</p>";
             }
