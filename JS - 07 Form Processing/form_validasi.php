@@ -5,7 +5,7 @@
     </head>
     <body>
         <h1>Form input dengan validasi</h1>
-        <form method="post" action="proses_validasi.php">
+        <form id="myForm" method="post" action="proses_validasi.php">
             <label for="nama">Nama : </label>
             <input type="text" id="nama" name="nama">
             <span id="nama-error" style="color : red;"></span>
@@ -18,6 +18,10 @@
 
             <input type="submit" value="submit">
         </form>
+
+        <div id="hasil">
+            <!-- Hasil akan ditampilkan di sini -->
+        </div>
 
         <script>
             $(document).ready(function() {
@@ -41,10 +45,24 @@
                     }
 
                     if (valid) {
-                        (!event.preventDefault()
+                        !event.preventDefault();
                         // menghentikan pengiriman form jika validasi gagal
-                    )
+                    
                     }
+
+                    //Mengumpulkan data form
+                    var formData = $("#myForm").serialize();
+
+                    // Kirim data ke server PHP
+                    $.ajax({
+                        url: "proses_validasi.php", //Ganti dengan nama file PHP yang sesuai
+                        type: "POST",
+                        data: formData,
+                        success: function(response) {
+                            //Tampilkan hasil dari server di div "hasil"
+                            $("#hasil").html(response);
+                        }
+                    });
                 });
             });
         </script>
