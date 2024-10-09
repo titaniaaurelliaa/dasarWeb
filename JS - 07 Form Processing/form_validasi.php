@@ -8,15 +8,15 @@
         <form id="myForm" method="post" action="proses_validasi.php">
             <label for="nama">Nama : </label>
             <input type="text" id="nama" name="nama">
-            <span id="nama-error" style="color : red;"></span>
+            <span id="nama-error" style="color: red;"></span>
             <br>
 
             <label for="email">Email : </label>
             <input type="text" id="email" name="email">
-            <span id="email-error" style="color : red;"></span>
+            <span id="email-error" style="color: red;"></span>
             <br>
 
-            <label for="password">Password:</label>
+            <label for="password">Password :</label>
             <input type="password" id="password" name="password">
             <span id="password-error" style="color: red;"></span>
             <br>
@@ -33,6 +33,7 @@
                 $("#myForm").submit(function(event) {
                     var nama = $("#nama").val();
                     var email = $("#email").val();
+                    var password = $("#password").val();
                     var valid = true;
 
                     if (nama === "") {

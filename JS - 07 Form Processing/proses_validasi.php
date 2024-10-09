@@ -5,6 +5,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $errors = array();
 
+    if (isset($_POST["password"])) {
+        $password = $_POST["password"];
+    } else {
+        $password = "";
+    }
+
     //Validasi Nama
     if (empty($nama)) {
         $errors[] = "Nama harus diisi.";
