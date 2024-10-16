@@ -5,7 +5,7 @@ if(isset($_FILES['file'])) {
     $file_size = $_FILES['file']['size'];
     $file_tmp = $_FILES['file']['tmp_name'];
     $file_type = $_FILES['file']['type'];
-    $file_ext = strtolower("" . end(explode('.', $_FILES['file']['name'])) . "");
+    @$file_ext = strtolower("" . end(explode('.', $_FILES['file']['name'])) . "");
     $extensions = array("pdf", "doc", "docx", "txt");
 
     if (in_array($file_ext, $extensions) === false) {
@@ -20,7 +20,7 @@ if(isset($_FILES['file'])) {
         move_uploaded_file($file_tmp, "documents/" . $file_name);
         echo "File berhasil diunggah.";
     } else {
-        echo implode("", $errors);
+        echo implode(" ", $errors);
     }
 }
 ?>

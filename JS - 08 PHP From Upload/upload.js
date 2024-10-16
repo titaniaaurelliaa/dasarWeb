@@ -10,7 +10,7 @@ $(document).ready(function(){
             data: formData,
             cache: false,
             contentType: false,
-            prosesData: false,
+            processData: false,
             success: function(response){
                 $('#status').html(response)
             },
