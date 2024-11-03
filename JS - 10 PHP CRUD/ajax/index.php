@@ -32,6 +32,7 @@ include 'auth.php';
                             <label>Nama</label>
                             <input type="hidden" name="id" id="id">
                             <input type="text" name="nama" id="nama" class="form-control" required="true">
+                            <p class="text-danger" id="err_nama"></p>
                         </div>
                     </div>
                     <div class="col-sm-3">
@@ -39,16 +40,19 @@ include 'auth.php';
                             <label>Jenis Kelamin</label><br>
                             <input type="radio" name="jenis_kelamin" id="jenkel1" value="L" required="true">Laki-laki
                             <input type="radio" name="jenis_kelamin" id="jenkel2" value="P">Perempuan
+                            <p class="text-danger" id="err_jenis_kelamin"></p>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Alamat</label>
                     <textarea name="alamat" id="alamat" class="form-control" required="true"></textarea>
+                    <p class="text-danger" id="err_alamat"></p>
                 </div>
                 <div class="form-group">
                     <label>No Telepon</label>
                     <input type="number" name="no_telp" id="no_telp" class="form-control" required="true"></textarea>
+                    <p class="text-danger" id="err_no_telp"></p>
                 </div>
                 <div class="form-group">
                     <button type="button" name="simpan" id="simpan" class="btn btn-primary">
@@ -77,7 +81,57 @@ include 'auth.php';
                     }
                 });
                 $('.data').load("data.php");
-            })
+            });
+            
+            // Event click pada tombol simpan
+            $("#simpan").click(function() {
+                var data = $('.form-data').serialize();
+                var jenkel1 = document.getElementById("jenkel1").checked;
+                var jenkel2 = document.getElementById("jenkel2").checked;
+                var nama = document.getElementById("nama").value;
+                var alamat = document.getElementById("alamat").value;
+                var no_telp = document.getElementById("no_telp").value;
+
+                if (nama == "") {
+                    document.getElementById("err_nama").innerHTML = "Nama Harus Diisi";
+                } else {
+                    document.getElementById("err_nama").innerHTML = "";
+                }
+
+                if (alamat == "") {
+                    document.getElementById("err_alamat").innerHTML = "Alamat Harus Diisi";
+                } else {
+                    document.getElementById("err_alamat").innerHTML = "";
+                }
+
+                if (!jenkel1 && !jenkel2) {
+                    document.getElementById("err_jenis_kelamin").innerHTML = "Jenis Kelamin Harus Dipilih";
+                } else {
+                    document.getElementById("err_jenis_kelamin").innerHTML = "";
+                }
+
+                if (no_telp == "") {
+                    document.getElementById("err_no_telp").innerHTML = "No Telepon Harus Diisi";
+                } else {
+                    document.getElementById("err_no_telp").innerHTML = "";
+                }
+
+                if (nama != "" && alamat != "" && (jenkel1 || jenkel2) && no_telp != "") {
+                    $.ajax({
+                        type: 'POST',
+                        url: "form_action.php",
+                        data: data,
+                        success: function() {
+                            $('.data').load("data.php");
+                            document.getElementById("id").value = "";
+                            document.getElementById("form-data").reset();
+                        },
+                        error: function(response) {
+                            console.log(response.responseText);
+                        }
+                    });
+                }
+            });
         </script>
     </body>
 </html>
