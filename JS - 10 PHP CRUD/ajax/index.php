@@ -64,6 +64,9 @@ include 'auth.php';
 
             <div class="data"></div>
         </div>
+        <div class="text-center">
+            <?php echo date('Y'); ?> Copyright: <a href="https://google.com/">Desain Dan Pemrograman Web</a>
+        </div>
 
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
