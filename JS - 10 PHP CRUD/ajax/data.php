@@ -85,4 +85,23 @@
             }
         });
     });
+
+    $(document).on('click', '.hapus_data', function() {
+        // Mendapatkan ID data dari tombol yang diklik
+        var id = $(this).attr('id');
+        
+        // Mengirimkan permintaan AJAX untuk menghapus data
+        $.ajax({
+            type: 'POST',
+            url: "hapus_data.php",
+            data: {id:id},
+            success: function() {
+                // Memuat ulang data setelah berhasil dihapus
+                $('.data').load("data.php");
+            },
+            error: function (response) {
+                console.log(response.responseText);
+            }
+        });
+    });
 </script>
