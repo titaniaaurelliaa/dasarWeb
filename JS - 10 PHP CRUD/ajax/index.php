@@ -6,7 +6,7 @@ include 'auth.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.8">
         <!-- csrf token -->
-        <meta name="csrf-token" content="<?= $_SESSION['csrf_token'] ?>">
+        <meta name="csrf_token" content="<?= $_SESSION['csrf_token'] ?>">
         <!-- bootstrap -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
         <!-- font awesome -->
@@ -80,7 +80,7 @@ include 'auth.php';
                 //mengirimkan token keamanan
                 $.ajaxSetup({
                     headers : {
-                        'Csrf-Token': $('meta[name="csrf-token"]').attr('content')
+                        'csrf_token': $('meta[name="csrf_token"]').attr('content')
                     }
                 });
                 $('.data').load("data.php");
