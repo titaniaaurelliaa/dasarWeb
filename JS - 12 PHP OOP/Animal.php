@@ -51,6 +51,16 @@ class Animal {
         return $this->name;
     }
 
+    //Menambahkan metode publik untuk mengakses protected getAge()
+    public function getAgePublic() {
+        return $this->getAge();
+    }
+
+    //Menambahkan metode publik untuk mengakses private getColor()
+    public function getColorPublic() {
+        return $this->getColor();
+    }
+
     protected function getAge() {
         return $this->age;
     }
@@ -62,7 +72,7 @@ class Animal {
 
 $animal = new Animal("Dog", 3, "Brown");
 
-echo "Name : " . $animal->name . "<br>";
-echo "Age : " . $animal->getAge() . "<br>";
-echo "Color : " . $animal->getColor() . "<br>";
+echo "Name: " . $animal->getName() . "<br>";
+echo "Age: " . $animal->getAgePublic() . "<br>";  // Memanggil metode publik
+echo "Color: " . $animal->getColorPublic() . "<br>";
 ?>
